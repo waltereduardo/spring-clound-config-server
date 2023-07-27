@@ -8,4 +8,4 @@ spring:
   data:
     mongodb:
        url: mongodb+srv://bootcam:akOU0Wt6DZbORQrD@cluster0.o44govo.mongodb.net/bootcam?retryWrites=true&w=majority
-       database: bootcam45
+       database: bootcam
