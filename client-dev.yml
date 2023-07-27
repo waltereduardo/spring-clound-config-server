@@ -1,11 +1,27 @@
 server:
-  port: 8086
-management:
-  server:
-    port: 9001
-    address: 127.0.0.1
+  port: 8081
+
 spring:
   data:
     mongodb:
-       url: mongodb+srv://bootcam:akOU0Wt6DZbORQrD@cluster0.o44govo.mongodb.net/bootcam?retryWrites=true&w=majority
-       database: bootcam
+      uri: mongodb+srv://bootcam:akOU0Wt6DZbORQrD@cluster0.o44govo.mongodb.net/bootcam?retryWrites=true&w=majority
+  kafka:
+    consumer:
+      group-id: my-group
+    producer:
+      properties:
+          spring:
+             json:
+                trusted:
+                    packages=com.nttdata.bootcam.banca.consulta.client.infraestructure.event
+catalog-request-topic: catalog-request-topic
+order-request-topic: order-request-topic
+
+                         
+springdoc:
+    api-docs:
+      groups:
+        enabled: true
+      path: /swagger-doc/v3/api-docs
+    swagger-ui:
+      path: /swagger-doc/swagger-ui.html

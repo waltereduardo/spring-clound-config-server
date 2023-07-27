@@ -1,11 +1,26 @@
 server:
-  port: 8086
-management:
-  server:
-    port: 9001
-    address: 127.0.0.1
+  port: 8083
+
 spring:
   data:
     mongodb:
-       url: mongodb+srv://ingwaltereduardo:BTFZ4v2qwbnNWByQ@clustertransaction.bxifyao.mongodb.net/bancatransactiondb?retryWrites=true&w=majority
-       database: bancatransactiondb
+      uri: mongodb+srv://ingwaltereduardo:BTFZ4v2qwbnNWByQ@clustertransaction.bxifyao.mongodb.net/bancatransactiondb?retryWrites=true&w=majority
+  kafka:
+    consumer:
+      group-id: my-group
+      bootstrap-servers: localhost:9092
+    producer:
+      properties:
+          spring:
+             json:
+                trusted:
+                    packages=com.nttdata.bootcam.banca.transaction.infrastructure.event
+
+                         
+springdoc:
+    api-docs:
+      groups:
+        enabled: true
+      path: /swagger-doc/v3/api-docs
+    swagger-ui:
+      path: /swagger-doc/swagger-ui.html
